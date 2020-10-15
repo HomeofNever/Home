@@ -1,0 +1,6 @@
+{
+    "version": 2,
+    "routes": [
+        { "src": "/_lambda/sao", "dest": "/api/sao.js" }
+    ]
+}
