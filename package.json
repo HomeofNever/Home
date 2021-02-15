@@ -1,27 +1,19 @@
 {
-  "name": "amphineko",
+  "name": "homeofnever",
   "version": "0.0.1",
-  "description": "",
-  "main": "gulpfile.js",
+  "description": "See README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amphineko/amphineko.git"
+    "url": "git+https://github.com/HomeofNever/home.git"
   },
-  "author": "Naoki Rinmous <sukareki@gmail.com>",
+  "author": "NeverBehave <gayhub@never.pet>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amphineko/amphineko/issues"
+    "url": "https://github.com/HomeofNever/home"
   },
-  "homepage": "https://futa.moe/amphineko/",
+  "homepage": "https://never.pet",
   "scripts": {
-    "build": "node ./node_modules/gulp/bin/gulp.js"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-rename": "^1.2.3",
-    "gulp-sass": "^4.0.1",
-    "unsemantic": "^1.2.3",
-    "got": "^9.6.0"
   }
 }
