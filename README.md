@@ -2,7 +2,9 @@
 
 This repository is a development copy of my homepage ([https://never.pet/](https://never.pet/)), which can be used as a template.
 
-**This is a fork repo** 
+**This is a fork repo** fork moved -> https://github.com/amphineko/atomicneko
+
+**This is an old version** 作者更新并使用了新的设计，这个版本并未更新，以后将会重制。
 
 这里是 [https://never.pet](https://never.pet/) 的开发版本，也可以用来作为制作页面的模版。
 
