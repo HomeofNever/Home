@@ -12,8 +12,8 @@
     "url": "https://github.com/HomeofNever/home"
   },
   "homepage": "https://never.pet",
-  "scripts": {
-  },
-  "devDependencies": {
+  "scripts": {},
+  "dependencies": {
+    "got": "^11.8.1"
   }
 }
