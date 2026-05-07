@@ -23,6 +23,26 @@ Want this as your own homepage? Fork the repo and edit [`src/lib/tiles.yaml`](sr
 
 Drop a tile by deleting its block; add one by copying a neighbour and tweaking it. Build errors point to the offending line.
 
+### Tracking history
+
+Any tile or item can carry a `history` array of prior states. Use this when there's a real chronology — not for playful "I used to claim X" jokes (those still belong in inline strikethrough). Each history entry has the same shape as a label, plus an optional integer `year`.
+
+```yaml
+- icon: fab:linux
+  content: Framework 13
+  year: 2024
+  history:
+    - year: 2019
+      icon: fab:windows
+      content: MSI GS65 (RTX 2060)
+```
+
+The current value renders as the first carousel panel; history entries follow in document order (newest-first by convention). Each panel shows a small year badge in its top-right corner if the entry has a `year`. Swipe horizontally on touch or trackpad to see prior panels.
+
+History entries cannot themselves carry `history` (one level deep). Use this for laptops you've replaced, server OSes you've migrated through, anything with a "what came before" worth keeping. Don't use it to encode "I tried X but went with Y" — that's what inline strike is for.
+
+The site is currently statically prerendered with no client-side JavaScript, so the carousel is swipe-only — there's no clickable dot indicator yet. That's a deliberate trade-off; a JS-enhanced layer (clickable year dots, keyboard navigation, active-panel tracking, and a global year-rewind dropdown) can be added later by enabling CSR on the homepage route.
+
 ## Develop
 
 ```bash
