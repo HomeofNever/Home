@@ -37,7 +37,7 @@ Any tile or item can carry a `history` array of prior states. Use this when ther
       content: MSI GS65 (RTX 2060)
 ```
 
-The current value renders as the first carousel panel; history entries follow in document order (newest-first by convention). Each panel shows a small year badge in its top-right corner if the entry has a `year`. Swipe horizontally on touch or trackpad to see prior panels.
+The current value renders as the first carousel panel; history entries follow in document order (newest-first by convention). The icon, text, and year (rendered inline as `· 2024` in muted grey) all scroll together as a unit; the tile itself stays put. Swipe horizontally on touch or trackpad to step through panels — snap-mandatory, so no half-states.
 
 History entries cannot themselves carry `history` (one level deep). Use this for laptops you've replaced, server OSes you've migrated through, anything with a "what came before" worth keeping. Don't use it to encode "I tried X but went with Y" — that's what inline strike is for.
 

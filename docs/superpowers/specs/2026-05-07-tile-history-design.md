@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-07
 **Branch:** `feat/tile-history`
-**Status:** Spec — pending implementation plan
+**Status:** Schema + CSS carousel shipped (commits `fd08091`–`256aeda`). The JS-driven additions described under "Rendering" — clickable year-dot row, `IntersectionObserver` active tracking, keyboard arrow nav, `prefers-reduced-motion` smooth scroll — were built and then **stripped** in commit `22ca76b` because the site uses `csr = false` (fully static prerender, no client-side JS). The shipped carousel is CSS-only: snap-mandatory horizontal swipe, year rendered inline as `· 2024` rather than as an absolute corner badge. Re-enable those features by toggling CSR per-route and reinstating `LabelCarousel.svelte` from history at `2de7776`.
 **Follow-up spec:** Global year-dropdown / "rewind" UI (separate spec, not in this scope)
 
 ## Goal
