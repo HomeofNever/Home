@@ -6,7 +6,7 @@
   export let label: Label;
 
   // The current state (panel 0) plus the history entries (panels 1..N).
-  $: panels = [label, ...(label.history ?? [])] as LabelBase[];
+  $: panels = [label, ...(label.history ?? [])] as [Label, ...LabelBase[]];
 
   // Unique prefix per carousel instance so ARIA aria-controls IDs
   // don't collide when multiple carousels render on the same page.
@@ -26,7 +26,7 @@
         aria-label={p.alt}
         role="tabpanel"
         id={`${cid}-panel-${i}`}
-        class="panel snap-start flex-[0_0_100%] relative inline-flex items-baseline gap-1 px-3 py-2 bg-tile-bg shadow-tile rounded-md text-tile-title font-light leading-none no-underline"
+        class="panel snap-start flex-[0_0_100%] relative inline-flex items-baseline gap-1 pl-3 pr-8 py-2 bg-tile-bg shadow-tile rounded-md text-tile-title font-light leading-none no-underline"
       >
         {#if p.year !== undefined}
           <span class="year-badge absolute top-1 right-2 text-xs font-mono text-tile-history">
