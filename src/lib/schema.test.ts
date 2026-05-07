@@ -106,4 +106,46 @@ describe('TilesDoc schema', () => {
   it('the live tiles.yaml file conforms to the schema', () => {
     expect(() => TilesDoc.parse(tilesYaml)).not.toThrow();
   });
+
+  it('accepts a label with an integer year', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:linux', content: 'Framework 13', year: 2024 }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('rejects a label whose year is a string', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:linux', content: 'Framework 13', year: '2024' }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
+  it('rejects a label whose year is a non-integer', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:linux', content: 'Framework 13', year: 2024.5 }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
+  it('accepts a label with year zero, negative, or far future', () => {
+    for (const year of [0, -42, 9999]) {
+      const doc = {
+        sections: {
+          header: [{ content: 'placeholder', year }],
+          identities: []
+        }
+      };
+      expect(() => TilesDoc.parse(doc), `year=${year}`).not.toThrow();
+    }
+  });
 });

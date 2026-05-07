@@ -13,14 +13,18 @@ export type InlinePart = z.infer<typeof InlinePart>;
 
 const RichString = z.union([z.string(), z.array(InlinePart)]);
 
-const Label = z.object({
+const LabelBase = z.object({
   icon: z.string().optional(),
   icons: z.array(z.string()).optional(),
   title: RichString.optional(),
   content: RichString.optional(),
   href: z.string().url().optional(),
-  alt: z.string().optional()
+  alt: z.string().optional(),
+  year: z.number().int().optional()
 });
+export type LabelBase = z.infer<typeof LabelBase>;
+
+const Label = LabelBase;
 export type Label = z.infer<typeof Label>;
 
 const Tile = Label.extend({
