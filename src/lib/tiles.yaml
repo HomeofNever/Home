@@ -1,0 +1,230 @@
+sections:
+  header:
+    - caption: Work Profile
+      icon: fas:user-circle
+      title: Please visit
+      content: https://xinhao.lu
+      href: https://xinhao.lu
+
+    - caption: Patreons
+      icon: fab:patreon
+      title: Creating Open-Source Software
+      href: https://www.patreon.com/NeverBehave
+
+    - caption: Languages
+      icon: fas:language
+      title: 汉语 & English
+
+    - caption: Education
+      items:
+        - icon: fas:university
+          title: "Undergraduate, Class of 2021"
+          content: Rensselaer Polytechnic Institute
+          href: https://rpi.edu
+        - icon: fas:university
+          title: "Master, Class of 2023"
+          content: University of California, San Diego
+          href: https://ucsd.edu
+
+    - caption: Editor
+      icon: fas:edit
+      content: VSCode & Jetbrain Series
+      href: https://www.jetbrains.com/education/programs/
+
+    - caption: Lang & Runtime
+      icon: fas:plug
+      content:
+        - "§ "
+        - { icon: fab:docker }
+        - " | "
+        - { icon: fab:php }
+        - { icon: fab:java }
+        - { icon: fab:js-square }
+        - { icon: fab:python }
+        - " etc. "
+        - { text: fullstack, strike: true }
+
+    - caption: Spaces or Tabs
+      icon: fas:i-cursor
+      content:
+        - "tab "
+        - { text: "lint: space", strike: true }
+
+    - caption: Platforms & Models
+      items:
+        - icon: fab:windows
+          content: MSI GS65 (RTX 2060)
+        - icon: fab:apple
+          content: MacBook Air 2015 (Customized)
+        - icon: fab:linux
+          content:
+            - "ThinkCentre M75q Tiny (Customized) with "
+            - { text: Manjaro, strike: true }
+            - " "
+            - { text: NixOS, link: "https://nixos.org" }
+
+    - caption: "Platforms::Handsets & Models"
+      items:
+        - icon: fab:apple
+          content: iPad Pro 11' with Apple Pencil and Magic Keyboard
+        - icon: fab:apple
+          content: iPhone Xr
+        - icon: fab:apple
+          content: Apple Watch Series 4
+        - icon: fab:android
+          content: OnePlus 7 Pro
+        - icon: fas:headphones
+          content: AirPods 2 & AirPods Pro
+
+    - caption: "Platforms::Homesets & Models"
+      items:
+        - icon: fas:server
+          content:
+            - "Dell T40 with "
+            - { text: "Synology|Debian|NixOS", strike: true }
+            - " TrueNAS"
+        - icon: fab:apple
+          content: Homepod with Homekit
+        - icon: far:lightbulb
+          content: Philips Hue
+
+    - caption: Consoles
+      items:
+        - icon: fab:nintendo-switch
+          content: SW-7261-2650-0247
+        - icon: fab:playstation
+          content: (Deprecated)
+
+    - caption: AS-Operator
+      icon: fas:network-wired
+      title: PyNetwork
+      href: https://pytrade.me
+
+    - caption: Browser
+      icon: fab:firefox
+      title:
+        - { text: Chrome, strike: true }
+        - " Firefox"
+      href: https://www.mozilla.org/
+
+  identities:
+    - caption: Coding
+      items:
+        - icon: fab:github
+          title: GitHub
+          content: "@NeverBehave"
+          href: https://github.com/NeverBehave
+        - icon: fab:gitlab
+          title: GitLab
+          content: "@NeverBehave"
+          href: https://gitlab.com/NeverBehave
+
+    - caption: About me
+      items:
+        - icon: fas:box
+          title: CuriousCat
+          content: NeverBehave
+          href: https://curiouscat.me/NeverBehave
+        - icon: fas:home
+          title: Blog
+          content: NEVER迷の小窝
+          href: https://blog.never.pet
+
+    - caption: (Instant) Messaging
+      items:
+        - icon: fab:telegram
+          title: Telegram
+          content: "@NeverBehave"
+          href: https://t.me/NeverBehave
+        - icon: fab:keybase
+          title: Keybase
+          content: "@NeverBehave"
+          href: https://keybase.io/neverbehave
+        - icon: fas:at
+          title: E-mail
+          content: i@never.pet
+          href: "mailto:i@never.pet"
+        - icon: fas:map-marker
+          title: Zenly
+          content: NeverBehave
+          href: https://zen.ly/NeverBehave
+
+    - caption: Social Network
+      items:
+        - icon: fab:twitter
+          title: Twitter
+          content: "@_NeverBehave_"
+          href: https://twitter.com/_NeverBehave_
+        - icon: fab:instagram
+          title: Instagram
+          content: "@NeverBehave"
+          href: https://www.instagram.com/neverbehave
+
+    - caption: Music & Video
+      items:
+        - icon: fab:spotify
+          title: Spotify
+          content: NeverBehave
+          href: https://open.spotify.com/user/kplild4odg2fqy4ut7w3wx9gq
+        - icon: fab:soundcloud
+          title: SoundCloud
+          content: Never-Behave
+          href: https://soundcloud.com/never-behave
+        - icon: fab:youtube
+          title: Youtube
+          content: Never-Behave
+          href: https://www.youtube.com/channel/UCYLOv5WqFBQvY03kVX1xy6A
+
+    - caption: Yet Another Music Game
+      items:
+        - icon: fab:accessible-icon
+          title: OSU!
+          content: NeverBehave
+          href: https://osu.ppy.sh/u/NeverBehave
+        - icon: fas:music
+          title: Deemo & VOEZ
+          href: https://www.rayark.com
+
+    - caption: AR Games
+      items:
+        - icons: ["fas:bicycle", "fas:paper-plane"]
+          title: Ingress
+          content: "@NeverBehave"
+          href: https://ingress.com
+        - icon: fas:ghost
+          title: Pokémon Go
+          content: NeverBehave
+          href: https://www.pokemongo.com/en-us/
+
+    - caption: "Platform::Steam"
+      items:
+        - icon: fab:steam
+          title: Steam
+          content: NeverBehave
+          href: https://steamcommunity.com/id/NeverBehave
+        - icon: fas:heart
+          title: Nekojishi
+          href: https://store.steampowered.com/app/570840/
+        - icon: fas:thumbs-up
+          title: "Monster Hunter: World"
+          href: https://store.steampowered.com/app/582010/
+
+    - caption: "Platform::Origin"
+      items:
+        - icon: fas:fighter-jet
+          title: Origin
+          content: NeverBehaves
+          href: https://www.origin.com/usa/en-us/profile/friends
+        - icon: fas:heart
+          title: Command & Conquer
+          href: https://www.origin.com/usa/en-us/store/command-and-conquer/command-and-conquer-the-ultimate-collection
+
+    - caption: "Platform::Battle.net"
+      items:
+        - icon: fas:fighter-jet
+          title: Battle.Net
+          content: "NeverBehave#1808"
+          href: https://www.blizzard.com/en-sg/
+        - icon: fas:heart
+          title: OverWatch
+          href: https://playoverwatch.com/en-us/career/pc/NeverBehave-1808

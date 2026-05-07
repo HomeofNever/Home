@@ -1,0 +1,65 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-image: url('/assets/images/nat-pants.png');
+  background-position: center;
+  font-family: theme('fontFamily.sans');
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+}
+
+#container {
+  background-image: url('/assets/images/nat-pants-ng.png');
+  background-position: center;
+  box-shadow: theme('boxShadow.section');
+  margin: 1.5em auto;
+  max-width: 64em;
+  border-radius: theme('borderRadius.section');
+  overflow: hidden;
+}
+
+/* Section captions: light text on header bg, dark text on identities bg. */
+.section-header .tile-caption {
+  color: theme('colors.caption-light');
+}
+
+.section-identities .tile-caption {
+  color: theme('colors.caption-dark');
+}
+
+/* Chem-element decoration in the greeting (preserves the original sodium-pun). */
+.chem-element {
+  background: rgba(255, 163, 163, 0.09);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.1em 0.1em rgba(0, 0, 0, 0.05);
+  color: #fff;
+  margin-right: 0.1em;
+  padding: 0.35em 0.1em 0.35em 0.35em;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+.chem-element:hover {
+  box-shadow: 0 0 0.2em 0.2em rgba(255, 255, 255, 0.05);
+  transform: translate(1em, 1em);
+}
+
+.chem-element[data-element='sodium']::before {
+  content: '10';
+  font-size: 0.45em;
+  vertical-align: -0.5em;
+}
+
+.chem-element[data-element='sodium']:hover {
+  background: #faa3a3;
+}

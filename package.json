@@ -1,0 +1,33 @@
+{
+  "name": "homeofnever",
+  "version": "0.0.1",
+  "description": "Personal homepage — SvelteKit static site",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@modyfi/vite-plugin-yaml": "^1.1.1",
+    "@sveltejs/adapter-static": "^3.0.0",
+    "@sveltejs/kit": "^2.5.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@vitest/ui": "^4.1.5",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "svelte": "^4.2.0",
+    "svelte-check": "^3.6.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.2.0",
+    "vitest": "^4.1.5"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.0",
+    "zod": "^4.4.3"
+  }
+}

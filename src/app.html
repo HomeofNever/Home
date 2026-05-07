@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+    %sveltekit.head%
+  </head>
+  <body>
+    <div style="display: contents">%sveltekit.body%</div>
+    <script>
+      (function () {
+        function pickRandom() {
+          fetch('/data/sao.json')
+            .then(function (r) { return r.json(); })
+            .then(function (arr) {
+              var el = document.getElementById('hitokoto');
+              if (el && Array.isArray(arr) && arr.length) {
+                el.textContent = arr[Math.floor(Math.random() * arr.length)];
+              }
+            })
+            .catch(function () {});
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', pickRandom);
+        } else {
+          pickRandom();
+        }
+      })();
+    </script>
+  </body>
+</html>

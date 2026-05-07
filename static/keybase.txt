@@ -1,0 +1,88 @@
+==================================================================
+https://keybase.io/neverbehave
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://never.pet
+  * I am neverbehave (https://keybase.io/neverbehave) on keybase.
+  * I have a public key with fingerprint 1217 D968 2510 A270 016F  1398 CF6D F645 8187 0E75
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d62047c2e552ce3990c439d4c0fa80fdc77cb9656cca333c036a6120583fc8b50a",
+      "fingerprint": "1217d9682510a270016f1398cf6df64581870e75",
+      "host": "keybase.io",
+      "key_id": "cf6df64581870e75",
+      "kid": "0101d60eaee56b28b21f1e89aa400741f82c2af7253f36fba350b49bb4d83547e59e0a",
+      "uid": "4c3c2818961eb377967806027afe2019",
+      "username": "neverbehave"
+    },
+    "merkle_root": {
+      "ctime": 1539973233,
+      "hash_meta": "0e6bf361f4f0c1de6b33357f60db7da158f22c58fa21e3945b6d775ecd880846",
+      "seqno": 3822190
+    },
+    "revoke": {
+      "sig_ids": [
+        "88784a33e2803e020dc92bc99062dbf15ab9e78695b521f2b8c1c5e0994486260f"
+      ]
+    },
+    "service": {
+      "hostname": "never.pet",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1539973263,
+  "expire_in": 157680000,
+  "prev": "36fbe4c6359feff1f4ddcef89487cee9b0a8f6fbe5073d5b5704974d3f1d80a3",
+  "seqno": 51,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.80
+Comment: https://keybase.io/crypto
+
+yMP5AnicbZN7bBRFHMev5YpSLVIoRawp9cRioDazszuPrYVCIsWUQKyUgvTg2J2d
+aTfX3h5324OKgLwhIMQiirYilcjTBwrEgJE3rVTD+y1vQUSCRlAgPqqzjURj3D92
+M5Pv7/f7zue7syetgy816UDN7cHT53auTfpyV6LWV9Gas3hywHSsukDB5ECYt394
+tcXjbihsW4GCAFAgsDAEGmGQIwQZV3UdME3VLY0BYVAgLEYIM3WMMGOGqqoMqNjA
+sg5RVTBqImAE8gLCjlTyWDRmR1zZVoEKsXRMIVKAAQkAChaKqlMmsCWwhqhCCeAE
+ycIqJ+5VSHOmEef5tiP35CLUbu9/9Pd8A8XCgBucI2xCakJFKJzqhqEBQDRFUMig
+IQhEqlCxMA0VAVPTTVOzqIo0wpHO233XtrfTmMqgHKJjhZsqITomFGAAiSE4BIru
+CeM8FjFquFRHeILHTF5lJHhgSl6ghsfC1TwUcxzX48tc21MpSJIkKlRVeUYjXhWq
+4a7hOefYlJYUoQnAFEuuJFNEBAaWSSxDQVRAyOTbgIoMQ0MmtghBnFmUAqphaSXO
+J0ScQIFKIVR0IB3EeMIJc2943K6U5OKBgooApYRqMjAOKVA5kDkzHZpMxouhZQoF
+GabOCcU6MpGkB03KFIY40HVNoxhiIAJjp3jDYgmbtTf3ovo3gvwod6WdaMxxHeZU
+y+0q143GCzwobl3U003kZujvDiHTjljyL5EVsjZuOxEJSSr/wwtLXnxS1I7xkO0p
+EMEUyMebwxOypRcn1xhWkS64EBKkZTEuqK5RwjjXTWBQ4WkQIKolD0eAphPNUoVi
+UWCo/wBEivRpVMqeElvEcGtjMs9dOyv8vqRUX8eUZO/6+FI7dbl3qRaceeiOmDfC
+quh79jue0uyWzNPzuvX9FTelX0tJ4hdHl53od2rZ5/U7W27ljBw1/uLG7o0tyYMP
+Fe8dmpl9X9YLCwuL+3R+MVtZqNct3NPt7t3MNnK4yN/7gxPXKpalhZ8cV31+O/0p
+40intYvsc7eC/L1Vbx6e1WfjtTWH60X5ppnuVVus9x9v7FrYOmvgO3tnpA/a0XGA
+s07L6nE1Y/Lu6oOl1R/bKbv6n2FJ7+ZMn7jZWbvA92HT4peq9jf0qCyf1Dj0z1B8
+78o3Vg44v33V8Id3KFv+eC5v0+ay3PHDK4JtE36eNrXy2y1J+4ZmzVxQGryz7hBp
+ngZ3Nu0/2lC/vG7ZMyDl/U87rS5NvWlfep61FQ3xFS7fGjpffP2z/otuHuz4wIQr
+d8rDp3/pVXJk7IqRDSeLqDP7tU8ymvyZqaIfPNmSdvxSZsuF+2+ArOL07BkT15tz
+G442loGom1x/YNtTK0aL3cktLw8xs/3N13vvnh8O3b6Q1uybek5kzxkULG0p62L3
+GNKh7xf+YQdXzOn6Y1v+uD5LNtwIXn702JXWr5a2jSwZc7Rs3ezHnwVna5tzR33z
++/dPF2zInrth0fCPaN22Ynb50qAn9GGPdW/t+XqwH+tZ9MMj0XG5V/OPLdlS0nvf
+mJLjt5ecG/P1nrfXDDxQdKI8eMrCvU6vHr31zKjFK199cOkFZcoridzfMgqP1KeN
+SG/V/G+t/wszVPVM
+=r/qd
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/neverbehave
+
+==================================================================
