@@ -11,6 +11,7 @@ export default {
         'tile-bg': '#eeeeee',
         'tile-title': '#333333',
         'tile-content': '#555555',
+        'tile-history': '#888888',
         'caption-light': '#eeeeee',
         'caption-dark': '#333333'
       },
