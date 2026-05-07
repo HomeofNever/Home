@@ -12,36 +12,46 @@
   }
 </script>
 
-<div class="label-carousel inline-block w-72 bg-tile-bg shadow-tile rounded-md overflow-hidden">
-  <div class="panels flex overflow-x-auto snap-x snap-mandatory">
+<div class="label-carousel inline-grid bg-tile-bg shadow-tile rounded-md overflow-hidden">
+  {#each panels as p}
+    <div
+      class="col-start-1 row-start-1 invisible pointer-events-none px-3 py-2 inline-flex items-baseline gap-1 leading-none whitespace-nowrap"
+      aria-hidden="true"
+    >
+      {#if p.icons}
+        {#each p.icons as icon}<Icon name={icon} />{/each}
+      {:else if p.icon}<Icon name={p.icon} />{/if}
+      {#if p.title !== undefined}
+        <span class="font-medium"><InlineContent value={p.title} /></span>
+      {/if}
+      {#if p.content !== undefined}
+        <span class="text-tile-content"><InlineContent value={p.content} /></span>
+      {/if}
+      {#if p.year !== undefined}
+        <span class="text-tile-history">· {p.year}</span>
+      {/if}
+    </div>
+  {/each}
+
+  <div class="col-start-1 row-start-1 flex overflow-x-auto snap-x snap-mandatory">
     {#each panels as p}
       <svelte:element
         this={panelTag(p)}
         {...(p.href ? { href: p.href } : {})}
         aria-label={p.alt}
-        class="panel snap-start snap-always shrink-0 w-full relative inline-flex items-baseline gap-1 pl-3 pr-8 py-2 text-tile-title font-light leading-none no-underline"
+        class="snap-start snap-always shrink-0 w-full px-3 py-2 inline-flex items-baseline gap-1 text-tile-title font-light leading-none no-underline whitespace-nowrap"
       >
-        {#if p.year !== undefined}
-          <span class="year-badge absolute top-1 right-2 text-xs font-mono text-tile-history">
-            {p.year}
-          </span>
-        {/if}
         {#if p.icons}
-          {#each p.icons as icon}
-            <Icon name={icon} />
-          {/each}
-        {:else if p.icon}
-          <Icon name={p.icon} />
-        {/if}
+          {#each p.icons as icon}<Icon name={icon} />{/each}
+        {:else if p.icon}<Icon name={p.icon} />{/if}
         {#if p.title !== undefined}
-          <span class="title font-medium">
-            <InlineContent value={p.title} />
-          </span>
+          <span class="title font-medium"><InlineContent value={p.title} /></span>
         {/if}
         {#if p.content !== undefined}
-          <span class="content text-tile-content">
-            <InlineContent value={p.content} />
-          </span>
+          <span class="content text-tile-content"><InlineContent value={p.content} /></span>
+        {/if}
+        {#if p.year !== undefined}
+          <span class="text-tile-history">· {p.year}</span>
         {/if}
       </svelte:element>
     {/each}
