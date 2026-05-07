@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount, onDestroy } from 'svelte';
   import Icon from './Icon.svelte';
   import InlineContent from './InlineContent.svelte';
   import type { Label, LabelBase } from '$lib/schema';
@@ -11,6 +12,7 @@
 
   let scrollEl: HTMLDivElement;
   let activeIndex = 0;
+  let observer: IntersectionObserver | undefined;
 
   function panelTag(p: LabelBase): 'a' | 'div' {
     return p.href ? 'a' : 'div';
@@ -27,8 +29,32 @@
     if (!panel) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     scrollEl.scrollTo({ left: panel.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
-    activeIndex = i;
+    // activeIndex is updated by the observer, not here — avoids flicker
+    // if the user swipes mid-scroll.
   }
+
+  onMount(() => {
+    if (!scrollEl) return;
+    observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const idx = Number((visible.target as HTMLElement).dataset.index);
+          if (!Number.isNaN(idx)) activeIndex = idx;
+        }
+      },
+      { root: scrollEl, threshold: [0.5, 0.9] }
+    );
+    for (const child of Array.from(scrollEl.children)) {
+      observer.observe(child);
+    }
+  });
+
+  onDestroy(() => {
+    observer?.disconnect();
+  });
 </script>
 
 <div class="label-carousel inline-flex flex-col">
@@ -40,6 +66,7 @@
         aria-label={p.alt}
         role="tabpanel"
         id={`${cid}-panel-${i}`}
+        data-index={i}
         class="panel snap-start flex-[0_0_100%] relative inline-flex items-baseline gap-1 pl-3 pr-8 py-2 bg-tile-bg shadow-tile rounded-md text-tile-title font-light leading-none no-underline"
       >
         {#if p.year !== undefined}
