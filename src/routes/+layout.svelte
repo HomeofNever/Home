@@ -23,7 +23,7 @@
 
   <div class="section section-footer shadow-section">
     <a class="hosting block bg-site-hosting text-gray-200 px-4 py-3 text-sm no-underline" href="https://github.com/HomeofNever/Home">
-      <i aria-hidden="true" class="fas fa-code-branch mr-2"></i>A fork of atomicneko
+      <i aria-hidden="true" class="fas fa-code-branch mr-2"></i>Fork it, make it yours
     </a>
   </div>
 
