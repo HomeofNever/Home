@@ -11,7 +11,7 @@
     <script>
       (function () {
         function pickRandom() {
-          fetch('/data/sao.json')
+          fetch('%sveltekit.assets%/data/sao.json')
             .then(function (r) { return r.json(); })
             .then(function (arr) {
               var el = document.getElementById('hitokoto');

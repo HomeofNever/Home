@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 html {
-  background-image: url('/assets/images/nat-pants.png');
+  background-image: url('./lib/assets/images/nat-pants.png');
   background-position: center;
   font-family: theme('fontFamily.sans');
 }
@@ -19,7 +19,7 @@ body {
 }
 
 #container {
-  background-image: url('/assets/images/nat-pants-ng.png');
+  background-image: url('./lib/assets/images/nat-pants-ng.png');
   background-position: center;
   box-shadow: theme('boxShadow.section');
   margin: 1.5em auto;

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from '$app/paths';
   import Section from '$lib/components/Section.svelte';
 
   export let data;
@@ -8,7 +9,7 @@
   <div class="grid grid-cols-12 gap-4 px-6">
     <div class="col-span-12 md:col-span-3 p-4">
       <a href="https://twitter.com/_NeverBehave_/status/1162786240371937280">
-        <img class="block w-full bg-white rounded-full p-[3%] shadow-tile" src="/assets/images/current.png" alt="avatar" />
+        <img class="block w-full bg-white rounded-full p-[3%] shadow-tile" src="{base}/assets/images/current.png" alt="avatar" />
       </a>
     </div>
     <div class="col-span-12 md:col-span-9 px-2">
