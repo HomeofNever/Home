@@ -12,7 +12,7 @@
   }
 </script>
 
-<div class="label-carousel inline-grid max-w-96 bg-tile-bg shadow-tile rounded-md overflow-hidden">
+<div class="label-carousel relative inline-grid max-w-96 bg-tile-bg shadow-tile rounded-md overflow-hidden">
   {#each panels as p}
     <div
       class="col-start-1 row-start-1 invisible pointer-events-none px-3 py-2 leading-snug whitespace-nowrap"
@@ -25,7 +25,7 @@
     </div>
   {/each}
 
-  <div class="col-start-1 row-start-1 flex overflow-x-auto snap-x snap-mandatory">
+  <div class="absolute inset-0 flex overflow-x-auto snap-x snap-mandatory">
     {#each panels as p}
       <svelte:element
         this={panelTag(p)}
