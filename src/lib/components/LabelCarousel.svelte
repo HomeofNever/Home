@@ -5,20 +5,34 @@
 
   export let label: Label;
 
-  // The current state (panel 0) plus the history entries (panels 1..N).
   $: panels = [label, ...(label.history ?? [])] as [Label, ...LabelBase[]];
 
-  // Unique prefix per carousel instance so ARIA aria-controls IDs
-  // don't collide when multiple carousels render on the same page.
   const cid = `c${Math.random().toString(36).slice(2, 9)}`;
+
+  let scrollEl: HTMLDivElement;
+  let activeIndex = 0;
 
   function panelTag(p: LabelBase): 'a' | 'div' {
     return p.href ? 'a' : 'div';
   }
+
+  function dotLabel(p: LabelBase, i: number): string {
+    if (i === 0) return p.year !== undefined ? `Now (${p.year})` : 'Now';
+    return p.year !== undefined ? String(p.year) : `Earlier ${i}`;
+  }
+
+  function scrollToPanel(i: number) {
+    if (!scrollEl) return;
+    const panel = scrollEl.children[i] as HTMLElement | undefined;
+    if (!panel) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scrollEl.scrollTo({ left: panel.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+    activeIndex = i;
+  }
 </script>
 
 <div class="label-carousel inline-flex flex-col">
-  <div class="panels flex overflow-x-auto snap-x snap-mandatory">
+  <div class="panels flex overflow-x-auto snap-x snap-mandatory" bind:this={scrollEl}>
     {#each panels as p, i}
       <svelte:element
         this={panelTag(p)}
@@ -53,4 +67,22 @@
       </svelte:element>
     {/each}
   </div>
+
+  {#if panels.length > 1}
+    <div class="dots flex gap-1 mt-1 px-1" role="tablist">
+      {#each panels as p, i}
+        <button
+          type="button"
+          role="tab"
+          aria-controls={`${cid}-panel-${i}`}
+          aria-selected={activeIndex === i}
+          aria-label={dotLabel(p, i)}
+          class="dot w-2 h-2 rounded-full transition-colors"
+          class:bg-tile-content={activeIndex === i}
+          class:bg-tile-history={activeIndex !== i}
+          on:click={() => scrollToPanel(i)}
+        ></button>
+      {/each}
+    </div>
+  {/if}
 </div>
