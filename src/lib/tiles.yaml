@@ -52,16 +52,23 @@ sections:
 
     - caption: Platforms & Models
       items:
-        - icon: fab:windows
-          content: MSI GS65 (RTX 2060)
+        - icon: fab:linux
+          content: Framework 13
+          year: 2024              # TODO: confirm year before merge
+          history:
+            - year: 2019          # TODO: confirm year before merge
+              icon: fab:windows
+              content: MSI GS65 (RTX 2060)
         - icon: fab:apple
           content: MacBook Air 2015 (Customized)
         - icon: fab:linux
           content:
             - "ThinkCentre M75q Tiny (Customized) with "
-            - { text: Manjaro, strike: true }
-            - " "
             - { text: NixOS, link: "https://nixos.org" }
+          history:
+            - content:
+                - "ThinkCentre M75q Tiny (Customized) with "
+                - { text: Manjaro, link: "https://manjaro.org" }
 
     - caption: "Platforms::Handsets & Models"
       items:
@@ -79,10 +86,11 @@ sections:
     - caption: "Platforms::Homesets & Models"
       items:
         - icon: fas:server
-          content:
-            - "Dell T40 with "
-            - { text: "Synology|Debian|NixOS", strike: true }
-            - " TrueNAS"
+          content: Dell T40 with TrueNAS
+          history:
+            - content: NixOS
+            - content: Debian
+            - content: Synology
         - icon: fab:apple
           content: Homepod with Homekit
         - icon: far:lightbulb
