@@ -12,24 +12,16 @@
   }
 </script>
 
-<div class="label-carousel inline-grid bg-tile-bg shadow-tile rounded-md overflow-hidden">
+<div class="label-carousel inline-grid max-w-96 bg-tile-bg shadow-tile rounded-md overflow-hidden">
   {#each panels as p}
     <div
-      class="col-start-1 row-start-1 invisible pointer-events-none px-3 py-2 inline-flex items-baseline gap-1 leading-none whitespace-nowrap"
+      class="col-start-1 row-start-1 invisible pointer-events-none px-3 py-2 leading-snug whitespace-nowrap"
       aria-hidden="true"
     >
-      {#if p.icons}
-        {#each p.icons as icon}<Icon name={icon} />{/each}
-      {:else if p.icon}<Icon name={p.icon} />{/if}
-      {#if p.title !== undefined}
-        <span class="font-medium"><InlineContent value={p.title} /></span>
-      {/if}
-      {#if p.content !== undefined}
-        <span class="text-tile-content"><InlineContent value={p.content} /></span>
-      {/if}
-      {#if p.year !== undefined}
-        <span class="text-tile-history">· {p.year}</span>
-      {/if}
+      {#if p.icons}{#each p.icons as icon}<Icon name={icon} />{/each}{:else if p.icon}<Icon name={p.icon} />{/if}
+      {#if p.title !== undefined}<span class="font-medium"> <InlineContent value={p.title} /></span>{/if}
+      {#if p.content !== undefined}<span class="text-tile-content"> <InlineContent value={p.content} /></span>{/if}
+      {#if p.year !== undefined}<span class="text-tile-history"> · {p.year}</span>{/if}
     </div>
   {/each}
 
@@ -39,20 +31,12 @@
         this={panelTag(p)}
         {...(p.href ? { href: p.href } : {})}
         aria-label={p.alt}
-        class="snap-start snap-always shrink-0 w-full px-3 py-2 inline-flex items-baseline gap-1 text-tile-title font-light leading-none no-underline whitespace-nowrap"
+        class="snap-start snap-always shrink-0 w-full px-3 py-2 text-tile-title font-light leading-snug no-underline"
       >
-        {#if p.icons}
-          {#each p.icons as icon}<Icon name={icon} />{/each}
-        {:else if p.icon}<Icon name={p.icon} />{/if}
-        {#if p.title !== undefined}
-          <span class="title font-medium"><InlineContent value={p.title} /></span>
-        {/if}
-        {#if p.content !== undefined}
-          <span class="content text-tile-content"><InlineContent value={p.content} /></span>
-        {/if}
-        {#if p.year !== undefined}
-          <span class="text-tile-history">· {p.year}</span>
-        {/if}
+        {#if p.icons}{#each p.icons as icon}<Icon name={icon} />{/each}{:else if p.icon}<Icon name={p.icon} />{/if}
+        {#if p.title !== undefined}<span class="title font-medium"> <InlineContent value={p.title} /></span>{/if}
+        {#if p.content !== undefined}<span class="content text-tile-content"> <InlineContent value={p.content} /></span>{/if}
+        {#if p.year !== undefined}<span class="text-tile-history"> · {p.year}</span>{/if}
       </svelte:element>
     {/each}
   </div>
