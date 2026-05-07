@@ -148,4 +148,75 @@ describe('TilesDoc schema', () => {
       expect(() => TilesDoc.parse(doc), `year=${year}`).not.toThrow();
     }
   });
+
+  it('accepts a label with a history array of LabelBase entries', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            icon: 'fab:linux',
+            content: 'Framework 13',
+            year: 2024,
+            history: [
+              { year: 2019, icon: 'fab:windows', content: 'MSI GS65 (RTX 2060)' },
+              { content: 'older laptop' }
+            ]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('accepts an empty history array', () => {
+    const doc = {
+      sections: {
+        header: [{ content: 'a thing', history: [] }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('rejects a history entry that itself carries history (no recursion)', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            content: 'current',
+            history: [
+              {
+                content: 'previous',
+                history: [{ content: 'older still' }]
+              }
+            ]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
+  it('accepts history on a group item', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            caption: 'Platforms',
+            items: [
+              {
+                icon: 'fab:linux',
+                content: 'Framework 13',
+                history: [{ year: 2019, content: 'MSI GS65' }]
+              }
+            ]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
 });

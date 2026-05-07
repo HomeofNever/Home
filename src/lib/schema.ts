@@ -24,7 +24,11 @@ const LabelBase = z.object({
 });
 export type LabelBase = z.infer<typeof LabelBase>;
 
-const Label = LabelBase;
+const HistoryEntry = LabelBase.strict();
+
+const Label = LabelBase.extend({
+  history: z.array(HistoryEntry).optional()
+});
 export type Label = z.infer<typeof Label>;
 
 const Tile = Label.extend({
