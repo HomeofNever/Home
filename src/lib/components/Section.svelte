@@ -7,7 +7,7 @@
 </script>
 
 <div class="section section-{variant}" class:section-header={variant === 'header'} class:section-identities={variant === 'identities'}>
-  <div class="flex flex-wrap items-start px-6 py-4">
+  <div class="flex flex-wrap items-start py-4" class:px-6={variant === 'identities'}>
     {#each tiles as tile}
       <Tile {tile} />
     {/each}

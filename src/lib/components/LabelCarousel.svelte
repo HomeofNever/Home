@@ -24,14 +24,14 @@
 </script>
 
 <div
-  class="label-carousel relative inline-grid max-w-[40rem] bg-tile-bg shadow-tile rounded-md overflow-hidden"
+  class="label-carousel relative inline-grid max-w-[min(40rem,100%)] bg-tile-bg shadow-tile rounded-md overflow-hidden"
   class:order-last={label.deprecated}
   class:opacity-60={label.deprecated}
   data-tooltip={wrapperTooltip}
 >
   {#each panels as p}
     <div
-      class="col-start-1 row-start-1 invisible pointer-events-none px-3 py-2 leading-snug whitespace-nowrap"
+      class="col-start-1 row-start-1 invisible pointer-events-none px-3 py-2 leading-snug sm:whitespace-nowrap"
       aria-hidden="true"
     >
       {#if p.icons}{#each p.icons as icon}<Icon name={icon} />{/each}{:else if p.icon}<Icon name={p.icon} />{/if}

@@ -8,7 +8,7 @@
 </script>
 
 <div
-  class="tile relative inline-block m-2 mt-7"
+  class="tile relative inline-block max-w-full m-2 mt-7"
   class:order-last={tile.deprecated}
   class:opacity-60={tile.deprecated}
   data-tooltip={tile.tooltip ?? (tile.deprecated && hasItems ? 'Deprecated' : null)}
