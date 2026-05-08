@@ -28,8 +28,12 @@ sections:
 
     - caption: Editor
       icon: fas:edit
-      content: VSCode & Jetbrain Series
-      href: https://www.jetbrains.com/education/programs/
+      items:
+        - icon: fas:code
+          content: VSCode
+          href: https://code.visualstudio.com/
+        - content: [{ text: Jetbrain, strike: true }]
+          href: https://www.jetbrains.com/education/programs/
 
     - caption: Lang & Runtime
       icon: fas:plug
@@ -50,40 +54,95 @@ sections:
         - "tab "
         - { text: "lint: space", strike: true }
 
-    - caption: Platforms & Models
+    - caption: Platforms::PC
       items:
         - icon: fab:linux
-          content: Framework 13
-          year: 2024              # TODO: confirm year before merge
+          content: Framework 13 - AMD
+          year: 2025
           history:
-            - year: 2019          # TODO: confirm year before merge
-              icon: fab:windows
-              content: MSI GS65 (RTX 2060)
+            - icon: fab:linux
+              content: Framework 13 - Intel
+              year: 2022
+            - icon: fab:windows
+              year: 2020
+              content: Dell XPS
+            - icon: fab:apple
+              content: MacBook Air 2015 (Customized)
+              year: 2016
         - icon: fab:apple
-          content: MacBook Air 2015 (Customized)
-        - icon: fab:linux
-          content:
-            - "ThinkCentre M75q Tiny (Customized) with "
-            - { text: NixOS, link: "https://nixos.org" }
+          year: 2026
+          content: 
+            - "Mac Mini M4 with "
+            - { text: Nix-Darwin }
           history:
-            - content:
+            - icon: fab:apple
+              content: Mac Mini M1
+              year: 2024
+            - icon: fab:linux
+              year: 2022
+              content:
+                - "ThinkCentre M75q Tiny (Customized) with "
+                - { text: NixOS, link: "https://nixos.org" }
+            - icon: fab:linux
+              year: 2020
+              content:
                 - "ThinkCentre M75q Tiny (Customized) with "
                 - { text: Manjaro, link: "https://manjaro.org" }
+        - icon: fab:windows
+          content: Custom Build MATX (RTX 5070 Foundation Edition)
+          year: 2025
+          history:
+            - year: 2024 
+              icon: fab:windows
+              content: Custom Build MATX (RTX 3060 OC)
+            - year: 2019 
+              icon: fab:windows
+              content: MSI GS65 (RTX 2060)
 
-    - caption: "Platforms::Handsets & Models"
+    - caption: "Platforms::Handsets"
       items:
         - icon: fab:apple
-          content: iPad Pro 11' with Apple Pencil and Magic Keyboard
+          content: iPad Mini 6 Gen with Apple Pencil 2
+          year: 2024
+          history:
+            - year: 2020
+              icon: fab:apple
+              content: iPad Pro 11' with Apple Pencil and Magic Keyboard
         - icon: fab:apple
-          content: iPhone Xr
-        - icon: fab:apple
-          content: Apple Watch Series 4
+          content: iPhone 15 Pro Max
+          year: 2024
+          history:
+            - year: 2021
+              content: iPhone 13 Pro Max
+            - year: 2019
+              content: iPhone Xr
+        - content: Garmin VivoActive 5
+          year: 2025
+          history: 
+            - icon: fab:apple
+              content: Apple Watch Series 5
+              year: 2023
+            - icon: fab:apple
+              content: Apple Watch Series 4
+              year: 2021
         - icon: fab:android
-          content: OnePlus 7 Pro
+          content: Pixel 10 Pro Fold
+          year: 2025
+          history: 
+            - year: 2019
+              content: OnePlus 7 Pro
         - icon: fas:headphones
-          content: AirPods 2 & AirPods Pro
+          content: AirPods Pro 3
+          year: 2025
+          history:
+            - icon: fab:apple
+              content: AirPods 2 & AirPods Pro
+              year: 2021
+        - icon: fas:headphones
+          content: Huawei Free Clip 3
+          year: 2025
 
-    - caption: "Platforms::Homesets & Models"
+    - caption: "Platforms::Homesets"
       items:
         - icon: fas:server
           content: Dell T40 with TrueNAS
@@ -93,15 +152,26 @@ sections:
             - content: Synology
         - icon: fab:apple
           content: Homepod with Homekit
+          year: 2018
         - icon: far:lightbulb
-          content: Philips Hue
+          content: IKEA DIRIGERA
+          year: 2025
+        - icon: fas:raspberry-pi
+          content: raspberry 4 with Home assistant
+          year: 2023
+          history:
+            - icon: far:lightbulb
+              year: 2021
+              content: Philips Hue
+              deprecated: true
 
     - caption: Consoles
       items:
         - icon: fab:nintendo-switch
           content: SW-7261-2650-0247
         - icon: fab:playstation
-          content: (Deprecated)
+          title: PlayStation
+          deprecated: true
 
     - caption: AS-Operator
       icon: fas:network-wired
@@ -156,6 +226,7 @@ sections:
           title: Zenly
           content: NeverBehave
           href: https://zen.ly/NeverBehave
+          deprecated: true
 
     - caption: Social Network
       items:
