@@ -12,7 +12,11 @@
   }
 </script>
 
-<div class="label-carousel relative inline-grid max-w-96 bg-tile-bg shadow-tile rounded-md overflow-hidden">
+<div
+  class="label-carousel relative inline-grid max-w-96 bg-tile-bg shadow-tile rounded-md overflow-hidden"
+  class:order-last={label.deprecated}
+  class:opacity-60={label.deprecated}
+>
   {#each panels as p}
     <div
       class="col-start-1 row-start-1 invisible pointer-events-none px-3 py-2 leading-snug whitespace-nowrap"
@@ -32,6 +36,7 @@
         {...(p.href ? { href: p.href } : {})}
         aria-label={p.alt}
         class="snap-start snap-always shrink-0 w-full px-3 py-2 text-tile-title font-light leading-snug no-underline"
+        class:opacity-60={p.deprecated && !label.deprecated}
       >
         {#if p.icons}{#each p.icons as icon}<Icon name={icon} />{/each}{:else if p.icon}<Icon name={p.icon} />{/if}
         {#if p.title !== undefined}<span class="title font-medium"> <InlineContent value={p.title} /></span>{/if}

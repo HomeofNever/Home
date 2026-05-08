@@ -219,4 +219,49 @@ describe('TilesDoc schema', () => {
     };
     expect(() => TilesDoc.parse(doc)).not.toThrow();
   });
+
+  it('accepts a label with deprecated true', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:playstation', deprecated: true }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('accepts a label with deprecated false', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:playstation', deprecated: false }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('rejects a label whose deprecated is a string', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:playstation', deprecated: 'yes' }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
+  it('accepts deprecated on a history entry', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            content: 'current',
+            history: [{ content: 'previous', deprecated: true }]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
 });

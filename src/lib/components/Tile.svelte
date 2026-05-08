@@ -7,7 +7,11 @@
   $: hasItems = !!tile.items && tile.items.length > 0;
 </script>
 
-<div class="tile relative inline-block m-2 mt-7">
+<div
+  class="tile relative inline-block m-2 mt-7"
+  class:order-last={tile.deprecated}
+  class:opacity-60={tile.deprecated}
+>
   {#if tile.caption}
     <span class="tile-caption absolute -top-5 left-0 text-xs">
       {tile.caption}

@@ -18,6 +18,8 @@
     {...(label.href ? { href: label.href } : {})}
     aria-label={label.alt}
     class="label inline-flex items-baseline gap-1 px-3 py-2 bg-tile-bg shadow-tile rounded-md text-tile-title font-light leading-none no-underline"
+    class:order-last={label.deprecated}
+    class:opacity-60={label.deprecated}
   >
     {#if label.icons}
       {#each label.icons as icon}

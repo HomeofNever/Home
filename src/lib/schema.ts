@@ -20,7 +20,8 @@ const LabelBase = z.object({
   content: RichString.optional(),
   href: z.string().url().optional(),
   alt: z.string().optional(),
-  year: z.number().int().optional()
+  year: z.number().int().optional(),
+  deprecated: z.boolean().optional()
 });
 export type LabelBase = z.infer<typeof LabelBase>;
 
