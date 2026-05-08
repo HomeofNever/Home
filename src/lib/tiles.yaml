@@ -112,13 +112,16 @@ sections:
           content: iPhone 15 Pro Max
           year: 2024
           history:
-            - year: 2021
+            - icon: fab:apple
+              year: 2021
               content: iPhone 13 Pro Max
-            - year: 2019
+            - icon: fab:apple
+              year: 2019
               content: iPhone Xr
-        - content: Garmin VivoActive 5
+        - icon: fas:stopwatch
+          content: Garmin VivoActive 5
           year: 2025
-          history: 
+          history:
             - icon: fab:apple
               content: Apple Watch Series 5
               year: 2023
@@ -128,8 +131,9 @@ sections:
         - icon: fab:android
           content: Pixel 10 Pro Fold
           year: 2025
-          history: 
-            - year: 2019
+          history:
+            - icon: fab:android
+              year: 2019
               content: OnePlus 7 Pro
         - icon: fas:headphones
           content: AirPods Pro 3
@@ -156,7 +160,7 @@ sections:
         - icon: far:lightbulb
           content: IKEA DIRIGERA
           year: 2025
-        - icon: fas:raspberry-pi
+        - icon: fab:raspberry-pi
           content: raspberry 4 with Home assistant
           year: 2023
           history:
