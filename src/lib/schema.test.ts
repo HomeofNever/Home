@@ -85,18 +85,32 @@ describe('TilesDoc schema', () => {
     expect(() => TilesDoc.parse(doc)).toThrow();
   });
 
-  it('rejects a malformed inline part (link not a URL)', () => {
+  it('rejects a malformed inline part (href not a URL)', () => {
     const doc = {
       sections: {
         header: [
           {
-            content: [{ text: 'click', link: 'not a url' }]
+            content: [{ text: 'click', href: 'not a url' }]
           }
         ],
         identities: []
       }
     };
     expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
+  it('accepts an icon-only inline part with href and tooltip', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            content: [{ icon: 'fab:php', href: 'https://php.net', tooltip: 'PHP' }]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
   });
 
   it('requires both header and identities sections', () => {
@@ -220,6 +234,26 @@ describe('TilesDoc schema', () => {
     expect(() => TilesDoc.parse(doc)).not.toThrow();
   });
 
+  it('accepts a label with a custom tooltip', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:github', tooltip: 'Source on GitHub', href: 'https://github.com/x/y' }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('rejects a label whose tooltip is not a string', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:github', tooltip: 42 }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
   it('accepts a label with deprecated true', () => {
     const doc = {
       sections: {
@@ -248,6 +282,88 @@ describe('TilesDoc schema', () => {
       }
     };
     expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
+  it('accepts an icon-only inline part with strike', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            content: [
+              'no longer: ',
+              { icon: 'fab:php', strike: true },
+              ' ',
+              { icon: 'fab:java', strike: true }
+            ]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('accepts an inline-part group with strike covering its items', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            content: [
+              'gone: ',
+              {
+                items: [{ icon: 'fab:php' }, ' ', { icon: 'fab:java' }, ' ', { icon: 'fab:js-square' }],
+                strike: true
+              }
+            ]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('accepts a label with system as a string', () => {
+    const doc = {
+      sections: {
+        header: [{ icon: 'fab:apple', content: 'Mac Mini M4', system: 'Nix-Darwin', year: 2026 }],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('accepts a label with system as inline parts', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            icon: 'fab:linux',
+            content: 'ThinkCentre M75q',
+            system: [{ text: 'NixOS', link: 'https://nixos.org' }],
+            year: 2022
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('accepts a history entry with only a system field', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            content: 'Dell T40',
+            system: 'TrueNAS',
+            history: [{ system: 'NixOS' }, { system: 'Debian' }]
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
   });
 
   it('accepts deprecated on a history entry', () => {

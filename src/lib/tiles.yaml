@@ -6,14 +6,20 @@ sections:
       content: https://xinhao.lu
       href: https://xinhao.lu
 
-    - caption: Patreons
-      icon: fab:patreon
+    - caption: Github Sponsor
+      icon: fa:heart
       title: Creating Open-Source Software
-      href: https://www.patreon.com/NeverBehave
+      href: https://github.com/sponsors/NeverBehave
 
     - caption: Languages
       icon: fas:language
-      title: 汉语 & English
+      items:
+        - title: 汉语
+          content: 母语
+        - title: English
+          content: Professional
+        - title: 粤语
+          content: 识少少，唔系好识讲
 
     - caption: Education
       items:
@@ -32,72 +38,93 @@ sections:
         - icon: fas:code
           content: VSCode
           href: https://code.visualstudio.com/
-        - content: [{ text: Jetbrain, strike: true }]
+        - icon: fas:atom
+          content: Atom
+          deprecated: true
+          href: https://atom-editor.cc/
+        - icon: fas:rocket
+          content: Jetbrain
+          deprecated: true
           href: https://www.jetbrains.com/education/programs/
-
-    - caption: Lang & Runtime
-      icon: fas:plug
-      content:
-        - "§ "
-        - { icon: fab:docker }
-        - " | "
-        - { icon: fab:php }
-        - { icon: fab:java }
-        - { icon: fab:js-square }
-        - { icon: fab:python }
-        - " etc. "
-        - { text: fullstack, strike: true }
 
     - caption: Spaces or Tabs
       icon: fas:i-cursor
       content:
         - "tab "
         - { text: "lint: space", strike: true }
+    
+    - caption: Runtime
+      content:
+        - { icon: fab:docker }
+        - " "
+        - { icon: fas:cubes }
+        - " "
+        - { icon: fas:box, href: https://github.com/systemd/systemd }
+        - " "
+
+    - caption: Programming Lang
+      href: https://claude.ai
+      content:
+        - items:
+          - { icon: fab:php }
+          - { icon: fab:java }
+          - { icon: fab:js-square }
+          - { icon: fab:python }
+          - { icon: fab:rust }
+          - { icon: fab:golang }
+          strike: true
+        - " "
+        - { icon: fas:robot }
+        - " Claude Code"
+
 
     - caption: Platforms::PC
       items:
         - icon: fab:linux
-          content: Framework 13 - AMD
-          year: 2025
+          content: Framework 13
+          system: AMD
+          year: 2024
           history:
             - icon: fab:linux
-              content: Framework 13 - Intel
+              content: Framework 13
+              system: Intel
               year: 2022
             - icon: fab:windows
               year: 2020
-              content: Dell XPS
+              content: Dell XPS 15
             - icon: fab:apple
-              content: MacBook Air 2015 (Customized)
+              content: MacBook Air
+              system: Early 2015
               year: 2016
         - icon: fab:apple
           year: 2026
-          content: 
-            - "Mac Mini M4 with "
-            - { text: Nix-Darwin }
+          content: Mac Mini M4
+          system: [{text: Nix-Darwin, href: "https://github.com/nix-darwin/nix-darwin"}]
           history:
             - icon: fab:apple
               content: Mac Mini M1
               year: 2024
             - icon: fab:linux
               year: 2022
-              content:
-                - "ThinkCentre M75q Tiny (Customized) with "
-                - { text: NixOS, link: "https://nixos.org" }
+              content: ThinkCentre M75q Tiny
+              system: [{ text: NixOS, href: "https://nixos.org" }]
             - icon: fab:linux
               year: 2020
-              content:
-                - "ThinkCentre M75q Tiny (Customized) with "
-                - { text: Manjaro, link: "https://manjaro.org" }
+              content: ThinkCentre M75q Tiny
+              system: [{ text: Manjaro, href: "https://manjaro.org" }]
         - icon: fab:windows
-          content: Custom Build MATX (RTX 5070 Foundation Edition)
+          content: Custom Build mATX 
+          system: RTX 5070 Foundation Edition
           year: 2025
           history:
             - year: 2024 
               icon: fab:windows
-              content: Custom Build MATX (RTX 3060 OC)
+              content: Custom Build mATX
+              system: RTX 3060 OC
             - year: 2019 
               icon: fab:windows
-              content: MSI GS65 (RTX 2060)
+              content: MSI GS65 
+              system: RTX 2060
 
     - caption: "Platforms::Handsets"
       items:
@@ -137,7 +164,7 @@ sections:
               content: OnePlus 7 Pro
         - icon: fas:headphones
           content: AirPods Pro 3
-          year: 2025
+          year: 2026
           history:
             - icon: fab:apple
               content: AirPods 2 & AirPods Pro
@@ -145,15 +172,33 @@ sections:
         - icon: fas:headphones
           content: Huawei Free Clip 3
           year: 2025
+          history:
+            - content: Shokz OpenSwim Pro 2
+              year: 2025
 
     - caption: "Platforms::Homesets"
       items:
+        - icon: fas:wifi
+          content: UniFi UDM-SE
+          href: https://techspecs.ui.com/unifi/cloud-gateways/udm-se
+          year: 2021
         - icon: fas:server
-          content: Dell T40 with TrueNAS
+          content: HP EC200a
+          system: NixOS
+          year: 2024
           history:
-            - content: NixOS
-            - content: Debian
-            - content: Synology
+            - icon: fas:server
+              content: Dell T40
+              system: TrueNAS
+              year: 2022
+            - icon: fas:server
+              content: Dell T40
+              system: Debian
+              year: 2020
+            - icon: fas:server
+              content: Dell T40
+              system: Synology
+              year: 2018
         - icon: fab:apple
           content: Homepod with Homekit
           year: 2018
@@ -167,27 +212,20 @@ sections:
             - icon: far:lightbulb
               year: 2021
               content: Philips Hue
-              deprecated: true
-
-    - caption: Consoles
-      items:
-        - icon: fab:nintendo-switch
-          content: SW-7261-2650-0247
-        - icon: fab:playstation
-          title: PlayStation
-          deprecated: true
-
-    - caption: AS-Operator
-      icon: fas:network-wired
-      title: PyNetwork
-      href: https://pytrade.me
+        - icon: fas:solar-panel
+          content: Ecoflow
 
     - caption: Browser
-      icon: fab:firefox
-      title:
-        - { text: Chrome, strike: true }
-        - " Firefox"
-      href: https://www.mozilla.org/
+      items:
+        - icon: fab:firefox
+          title: "Firefox"
+          href: https://www.mozilla.org/
+        - icon: fab:chrome
+          title: 
+            - "Chrom"
+            - { text: "e", strike: true }
+            - "ium"
+          href: https://www.chromium.org/Home/
 
   identities:
     - caption: Coding
@@ -199,11 +237,13 @@ sections:
         - icon: fab:gitlab
           title: GitLab
           content: "@NeverBehave"
+          deprecated: true
           href: https://gitlab.com/NeverBehave
 
     - caption: About me
       items:
         - icon: fas:box
+          deprecated: true
           title: CuriousCat
           content: NeverBehave
           href: https://curiouscat.me/NeverBehave
@@ -219,6 +259,7 @@ sections:
           content: "@NeverBehave"
           href: https://t.me/NeverBehave
         - icon: fab:keybase
+          deprecated: true
           title: Keybase
           content: "@NeverBehave"
           href: https://keybase.io/neverbehave
@@ -234,14 +275,44 @@ sections:
 
     - caption: Social Network
       items:
-        - icon: fab:twitter
-          title: Twitter
+        - icon: fab:mastodon
+          title: Mastodon
+          content: "@NeverBehave"
+          href: https://mastodon.social/@neverbehave
+        - icon: fab:x-twitter
+          title: 
+            - items: [{ icon: fab:twitter }, "Twitter"]
+              strike: true
           content: "@_NeverBehave_"
           href: https://twitter.com/_NeverBehave_
+        - icon: fab:qq
+          title: QQ
+          deprecated: true
+          tooltip: Exchange via Telegram/Email
+        - icon: fab:weixin
+          title: Wechat
+          deprecated: true
+          tooltip: Exchange via Telegram/Email
         - icon: fab:instagram
           title: Instagram
           content: "@NeverBehave"
+          deprecated: true
           href: https://www.instagram.com/neverbehave
+    
+    - caption: Furry Stuff
+      items: 
+        - icon: fas:photo-film
+          title: Furtrack
+          content: NeverBehave
+          href: https://www.furtrack.com/user/NeverBehave/
+        - icon: fas:mountain-city
+          title: FurAffinity
+          content: NeverBehave
+          href: https://www.furaffinity.net/user/neverbehave
+          deprecated: true
+        - icon: fas:message
+          title: BARQ
+          content: NeverBehave
 
     - caption: Music & Video
       items:
@@ -257,6 +328,10 @@ sections:
           title: Youtube
           content: Never-Behave
           href: https://www.youtube.com/channel/UCYLOv5WqFBQvY03kVX1xy6A
+        - icon: fab:bilibili
+          title: bilibili
+          content: NeverBehave
+          href: https://space.bilibili.com/1749026
 
     - caption: Yet Another Music Game
       items:
@@ -267,7 +342,28 @@ sections:
         - icon: fas:music
           title: Deemo & VOEZ
           href: https://www.rayark.com
-
+          deprecated: true
+        - icon: fas:user-doctor
+          title: Rhythm Doctor
+          href: https://rhythmdr.com/
+        - icon: fas:face-dizzy
+          title: Geometry Dash
+          href: https://www.geometrydash.com/
+    - caption: Yet Another Supercell Game
+      items:
+        - icon: fas:crown
+          title: Clash Royale
+          content: NeverBehave
+        - icon: fas:gun
+          title: Brawl Star
+          deprecated: true
+        - icon: fas:house
+          title: Clash of Clans
+          content: Lost Progress :(
+          deprecated: true
+        - icon: fas:umbrella-beach
+          title: Boom Beach
+          deprecated: true
     - caption: AR Games
       items:
         - icons: ["fas:bicycle", "fas:paper-plane"]
@@ -278,6 +374,7 @@ sections:
           title: Pokémon Go
           content: NeverBehave
           href: https://www.pokemongo.com/en-us/
+          deprecated: true
 
     - caption: "Platform::Steam"
       items:
@@ -311,3 +408,21 @@ sections:
         - icon: fas:heart
           title: OverWatch
           href: https://playoverwatch.com/en-us/career/pc/NeverBehave-1808
+
+    - caption: Consoles
+      items:
+        - icon: fas:gamepad
+          content: SW-7261-2650-0247
+          deprecated: true
+        - icon: fab:playstation
+          title: PlayStation
+          deprecated: true
+
+    - caption: AS-Operator
+      icon: fas:network-wired
+      title: WireCat
+      content: AS399888
+      href: https://wirecat.net
+      history:
+        - title: PyNetwork
+          content: AS212243

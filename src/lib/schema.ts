@@ -1,14 +1,17 @@
 import { z } from 'zod';
 
-const InlinePart = z.union([
-  z.string(),
-  z.object({
-    text: z.string().optional(),
-    icon: z.string().optional(),
-    link: z.string().url().optional(),
-    strike: z.boolean().optional()
-  })
-]);
+const InlineLeafObj = z.object({
+  text: z.string().optional(),
+  icon: z.string().optional(),
+  href: z.string().url().optional(),
+  tooltip: z.string().optional(),
+  strike: z.boolean().optional()
+});
+const InlineGroup = z.object({
+  items: z.array(z.union([z.string(), InlineLeafObj])),
+  strike: z.boolean().optional()
+});
+const InlinePart = z.union([z.string(), InlineGroup, InlineLeafObj]);
 export type InlinePart = z.infer<typeof InlinePart>;
 
 const RichString = z.union([z.string(), z.array(InlinePart)]);
@@ -18,8 +21,10 @@ const LabelBase = z.object({
   icons: z.array(z.string()).optional(),
   title: RichString.optional(),
   content: RichString.optional(),
+  system: RichString.optional(),
   href: z.string().url().optional(),
   alt: z.string().optional(),
+  tooltip: z.string().optional(),
   year: z.number().int().optional(),
   deprecated: z.boolean().optional()
 });

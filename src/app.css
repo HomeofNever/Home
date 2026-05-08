@@ -28,6 +28,45 @@ body {
   overflow: hidden;
 }
 
+/* Strike-through rendered as a corner-to-corner X. The dual linear-gradient
+   draws each diagonal as a 2px band; works on a single character or a whole
+   word and scales with the element's box. */
+del {
+  text-decoration: none;
+  background-image:
+    linear-gradient(to top right,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px),
+      currentColor calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to top left,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px),
+      currentColor calc(50% + 1px), transparent calc(50% + 1px));
+}
+
+/* CSS-only tooltip on any element carrying a [data-tooltip="..."] attribute.
+   The :not(:has(...)) clause suppresses an outer tooltip when a descendant
+   with its own tooltip is also being hovered, so nested tiles don't stack
+   bubbles. */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]:hover:not(:has([data-tooltip]:hover))::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 20, 0.92);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.2;
+  padding: 0.3em 0.6em;
+  border-radius: 0.3em;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+}
+
 /* Section captions: light text on header bg, dark text on identities bg. */
 .section-header .tile-caption {
   color: theme('colors.caption-light');

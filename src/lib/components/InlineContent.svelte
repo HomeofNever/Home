@@ -1,29 +1,14 @@
 <script lang="ts">
-  import Icon from './Icon.svelte';
+  import InlineLeaf from './InlineLeaf.svelte';
   import type { InlinePart } from '$lib/schema';
 
   export let value: string | InlinePart[] | undefined = undefined;
 
   $: parts = value === undefined ? [] : typeof value === 'string' ? [value] : value;
+
+  function isGroup(p: InlinePart): p is Extract<InlinePart, { items: unknown }> {
+    return typeof p === 'object' && p !== null && 'items' in p;
+  }
 </script>
 
-{#each parts as part}
-  {#if typeof part === 'string'}
-    {part}
-  {:else}
-    {#if part.icon}
-      <Icon name={part.icon} />
-    {/if}
-    {#if part.text !== undefined}
-      {#if part.link}
-        <a href={part.link}>
-          {#if part.strike}<del>{part.text}</del>{:else}{part.text}{/if}
-        </a>
-      {:else if part.strike}
-        <del>{part.text}</del>
-      {:else}
-        {part.text}
-      {/if}
-    {/if}
-  {/if}
-{/each}
+{#each parts as part}{#if typeof part === 'string'}{part}{:else if isGroup(part)}{#if part.strike}<del><svelte:self value={part.items} /></del>{:else}<svelte:self value={part.items} />{/if}{:else}<InlineLeaf icon={part.icon} text={part.text} href={part.href} tooltip={part.tooltip} strike={part.strike ?? false} />{/if}{/each}
