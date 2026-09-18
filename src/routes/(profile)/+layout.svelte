@@ -8,12 +8,12 @@
 <svelte:head>
   <meta property="og:title" content="About NeverBehave" />
   <meta property="og:url" content="https://never.pet" />
-  <meta property="og:description" content="Glad our paths crossed :3" />
+  <meta property="og:description" content="欸，是咕咕喵" />
   <meta property="og:image" content="{base}/assets/images/current.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="About NeverBehave" />
   <meta name="twitter:site" content="@_NeverBehave_" />
-  <meta name="twitter:description" content="Glad our paths crossed :3" />
+  <meta name="twitter:description" content="欸，是咕咕喵" />
   <meta name="twitter:image" content="{base}/assets/images/current.png" />
   <title>About NeverBehave</title>
 </svelte:head>
