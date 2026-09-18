@@ -258,6 +258,9 @@ sections:
           title: Telegram
           content: "@NeverBehave"
           href: https://t.me/NeverBehave
+          shortlink:
+            slug: telegram
+            aliases: [tg]
         - icon: fab:keybase
           deprecated: true
           title: Keybase
@@ -305,6 +308,8 @@ sections:
           title: Furtrack
           content: NeverBehave
           href: https://www.furtrack.com/user/NeverBehave/
+          shortlink:
+            slug: furtrack
         - icon: fas:mountain-city
           title: FurAffinity
           content: NeverBehave

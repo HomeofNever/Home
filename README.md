@@ -23,6 +23,21 @@ Want this as your own homepage? Fork the repo and edit [`src/lib/tiles.yaml`](sr
 
 Drop a tile by deleting its block; add one by copying a neighbour and tweaking it. Build errors point to the offending line.
 
+### Shortlinks
+
+Linked tiles can expose memorable paths such as `/telegram/` and aliases such as `/tg/`:
+
+```yaml
+- icon: fab:telegram
+  title: Telegram
+  href: https://t.me/NeverBehave
+  shortlink:
+    slug: telegram
+    aliases: [tg]
+```
+
+Slugs and aliases must be unique and contain only lowercase letters, numbers, and hyphens. The static build generates one redirect page for every slug and alias. Each page uses `location.replace`, with a zero-delay meta refresh and a visible destination link as fallbacks.
+
 ### Tracking history
 
 Any tile or item can carry a `history` array of prior states. Use this when there's a real chronology — not for playful "I used to claim X" jokes (those still belong in inline strikethrough). Each history entry has the same shape as a label, plus an optional integer `year`.

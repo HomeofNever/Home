@@ -10,6 +10,13 @@
     <div style="display: contents">%sveltekit.body%</div>
     <script>
       (function () {
+        var shortlink = document.querySelector('meta[name="shortlink-target"]');
+        var target = shortlink && shortlink.getAttribute('content');
+        if (target) {
+          window.location.replace(target);
+          return;
+        }
+
         function pickRandom() {
           fetch('%sveltekit.assets%/data/sao.json')
             .then(function (r) { return r.json(); })

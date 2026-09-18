@@ -18,6 +18,40 @@ describe('TilesDoc schema', () => {
     expect(() => TilesDoc.parse(doc)).not.toThrow();
   });
 
+  it('accepts a shortlink with aliases', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            title: 'Telegram',
+            href: 'https://t.me/example',
+            shortlink: { slug: 'telegram', aliases: ['tg'] }
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it.each([
+    { slug: 'Bad Slug' },
+    { slug: 'valid', aliases: ['also_bad'] }
+  ])('rejects an invalid shortlink configuration: %j', (shortlink) => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            href: 'https://example.com',
+            shortlink
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
   it('accepts a group tile with items', () => {
     const doc = {
       sections: {

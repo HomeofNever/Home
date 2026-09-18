@@ -16,6 +16,18 @@ export type InlinePart = z.infer<typeof InlinePart>;
 
 const RichString = z.union([z.string(), z.array(InlinePart)]);
 
+const ShortlinkSlug = z
+  .string()
+  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Shortlink slugs must use lowercase letters, numbers, and hyphens');
+
+const Shortlink = z
+  .object({
+    slug: ShortlinkSlug,
+    aliases: z.array(ShortlinkSlug).optional()
+  })
+  .strict();
+export type Shortlink = z.infer<typeof Shortlink>;
+
 const LabelBase = z.object({
   icon: z.string().optional(),
   icons: z.array(z.string()).optional(),
@@ -33,7 +45,8 @@ export type LabelBase = z.infer<typeof LabelBase>;
 const HistoryEntry = LabelBase.strict();
 
 const Label = LabelBase.extend({
-  history: z.array(HistoryEntry).optional()
+  history: z.array(HistoryEntry).optional(),
+  shortlink: Shortlink.optional()
 });
 export type Label = z.infer<typeof Label>;
 
