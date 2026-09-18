@@ -28,6 +28,16 @@ const Shortlink = z
   .strict();
 export type Shortlink = z.infer<typeof Shortlink>;
 
+const MobileLink = z
+  .object({
+    order: z.number().int().nonnegative(),
+    tier: z.enum(['primary', 'secondary']),
+    label: z.string().min(1).optional(),
+    description: z.string().min(1).optional()
+  })
+  .strict();
+export type MobileLink = z.infer<typeof MobileLink>;
+
 const LabelBase = z.object({
   icon: z.string().optional(),
   icons: z.array(z.string()).optional(),
@@ -46,7 +56,8 @@ const HistoryEntry = LabelBase.strict();
 
 const Label = LabelBase.extend({
   history: z.array(HistoryEntry).optional(),
-  shortlink: Shortlink.optional()
+  shortlink: Shortlink.optional(),
+  mobile: MobileLink.optional()
 });
 export type Label = z.infer<typeof Label>;
 

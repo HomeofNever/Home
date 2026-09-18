@@ -34,6 +34,37 @@ describe('TilesDoc schema', () => {
     expect(() => TilesDoc.parse(doc)).not.toThrow();
   });
 
+  it('accepts mobile presentation metadata', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            title: 'Telegram',
+            href: 'https://t.me/example',
+            mobile: { order: 10, tier: 'primary', description: 'Message me' }
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).not.toThrow();
+  });
+
+  it('rejects invalid mobile presentation metadata', () => {
+    const doc = {
+      sections: {
+        header: [
+          {
+            href: 'https://example.com',
+            mobile: { order: -1, tier: 'featured' }
+          }
+        ],
+        identities: []
+      }
+    };
+    expect(() => TilesDoc.parse(doc)).toThrow();
+  });
+
   it.each([
     { slug: 'Bad Slug' },
     { slug: 'valid', aliases: ['also_bad'] }

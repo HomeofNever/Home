@@ -1,4 +1,5 @@
-import type { InlinePart, Label, Tile, TilesDoc } from './schema';
+import { labelsFromDocument, richTextToString } from './labels';
+import type { TilesDoc } from './schema';
 
 export interface ShortlinkTarget {
   canonicalSlug: string;
@@ -6,27 +7,9 @@ export interface ShortlinkTarget {
   title: string;
 }
 
-function richTextToString(value: string | InlinePart[] | undefined): string {
-  if (value === undefined) return '';
-  if (typeof value === 'string') return value;
-
-  return value
-    .map((part) => {
-      if (typeof part === 'string') return part;
-      if ('items' in part) return richTextToString(part.items);
-      return part.text ?? '';
-    })
-    .join('')
-    .trim();
-}
-
-function labelsFromTiles(tiles: Tile[]): Label[] {
-  return tiles.flatMap((tile) => [tile, ...(tile.items ?? [])]);
-}
-
 export function buildShortlinks(doc: TilesDoc): Record<string, ShortlinkTarget> {
   const targets = Object.create(null) as Record<string, ShortlinkTarget>;
-  const labels = labelsFromTiles([...doc.sections.header, ...doc.sections.identities]);
+  const labels = labelsFromDocument(doc);
 
   for (const label of labels) {
     if (!label.shortlink) continue;

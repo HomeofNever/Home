@@ -18,11 +18,13 @@
         }
 
         function pickRandom() {
+          var el = document.getElementById('hitokoto');
+          if (!el) return;
+
           fetch('%sveltekit.assets%/data/sao.json')
             .then(function (r) { return r.json(); })
             .then(function (arr) {
-              var el = document.getElementById('hitokoto');
-              if (el && Array.isArray(arr) && arr.length) {
+              if (Array.isArray(arr) && arr.length) {
                 el.textContent = arr[Math.floor(Math.random() * arr.length)];
               }
             })

@@ -18,7 +18,7 @@ Want this as your own homepage? Fork the repo and edit [`src/lib/tiles.yaml`](sr
 
 1. Replace the `header` and `identities` sections with your own captions, links, and handles.
 2. Icons use Font Awesome prefixes: `fas:` (solid), `far:` (regular), `fab:` (brands). Browse names at [fontawesome.com/icons](https://fontawesome.com/icons).
-3. Swap the avatar at [`src/lib/assets/`](src/lib/assets/) (or `static/assets/images/current.png`) and update the `<svelte:head>` meta tags in [`src/routes/+layout.svelte`](src/routes/+layout.svelte).
+3. Swap the avatar at [`src/lib/assets/`](src/lib/assets/) (or `static/assets/images/current.png`) and update the homepage `<svelte:head>` meta tags in [`src/routes/(profile)/+layout.svelte`](src/routes/(profile)/+layout.svelte).
 4. Run `yarn test` to validate the YAML against the schema, then `yarn dev` to preview.
 
 Drop a tile by deleting its block; add one by copying a neighbour and tweaking it. Build errors point to the offending line.
@@ -37,6 +37,19 @@ Linked tiles can expose memorable paths such as `/telegram/` and aliases such as
 ```
 
 Slugs and aliases must be unique and contain only lowercase letters, numbers, and hyphens. The static build generates one redirect page for every slug and alias. Each page uses `location.replace`, with a zero-delay meta refresh and a visible destination link as fallbacks.
+
+### NFC landing page
+
+`/hi/` is a lightweight contact page intended for the NFC tag. Links are selected from the same tile data with optional `mobile` metadata:
+
+```yaml
+mobile:
+  order: 10
+  tier: primary
+  description: Message me
+```
+
+Orders must be unique. Mobile links must have an `href` and cannot be deprecated.
 
 ### Tracking history
 

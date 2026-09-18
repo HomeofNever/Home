@@ -261,6 +261,11 @@ sections:
           shortlink:
             slug: telegram
             aliases: [tg]
+          mobile:
+            order: 10
+            tier: primary
+            label: "Telegram: @NeverBehave"
+            description: Come say hi anytime.
         - icon: fab:keybase
           deprecated: true
           title: Keybase
@@ -288,6 +293,11 @@ sections:
               strike: true
           content: "@_NeverBehave_"
           href: https://twitter.com/_NeverBehave_
+          mobile:
+            order: 30
+            tier: primary
+            label: "Twitter / X: @_NeverBehave_"
+            description: Daily life, tech thoughts, and occasional meows.
         - icon: fab:qq
           title: QQ
           deprecated: true
@@ -310,6 +320,11 @@ sections:
           href: https://www.furtrack.com/user/NeverBehave/
           shortlink:
             slug: furtrack
+          mobile:
+            order: 20
+            tier: primary
+            label: "Furtrack: NeverBehave"
+            description: Tag me here. Thank you :3
         - icon: fas:mountain-city
           title: FurAffinity
           content: NeverBehave

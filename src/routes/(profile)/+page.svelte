@@ -19,13 +19,7 @@
           <a class="chem-element" data-element="sodium" href="https://www.wikiwand.com/en/Neon">Ne</a>verBehave
         </span>
       </h1>
-      <h1 class="text-3xl font-light leading-tight m-0 mb-6">
-        <small class="text-base">好耶，</small>
-        <span class="inline-block whitespace-nowrap">
-          是咕咕喵[咕喵]
-          <span class="inline-block">(&lt;ゝω·) ~☆</span>
-        </span>
-      </h1>
+      <p class="m-0 mb-6 text-base text-gray-200">Glad our paths crossed :3</p>
 
       <Section tiles={data.tiles.sections.header} variant="header" />
     </div>
